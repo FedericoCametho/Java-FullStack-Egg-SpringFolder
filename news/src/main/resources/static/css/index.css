@@ -1,0 +1,98 @@
+.navBar{
+    background-color: rgb(194, 179, 137);
+}
+
+.elementosNav{
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    color: #37474f;
+    font-weight: 700;
+}
+
+
+.nav-link{
+    color: #37474f;
+}
+.elementos{
+    margin-right: 50px;
+}
+
+.logo{
+    width: 100%;
+    margin: auto;
+    padding-bottom: 30pxfede;
+}
+
+
+.header{
+    background-color: rgba(199, 199, 231, 0.77);
+    background-size: cover;
+    height: 350px;
+    display: flex;
+    justify-content: end;
+}
+
+
+.containerFooter{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.boton{
+    background-color: #ffcb00;
+    box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
+    -webkit-box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
+    -moz-box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
+}
+
+.boton:hover{
+    background-color: #ffcb00;
+}
+.boton:active{
+    box-shadow: none;
+}
+.container{
+    margin-top: 10px;
+}
+.card-group{
+    display:flex;
+}
+
+.card{
+    margin: 10px;
+    border: #37474f solid 2px;
+}
+
+.btn-primary{
+    align-self: baseline;
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color:#333;
+    font-family: sans-serif;
+    background-color: rgb(194, 179, 137);
+}
+
+.flex-item {
+    max-width: 300px;
+    max-height: 800px;
+    flex-grow: 1;
+    flex-basis: 300px;
+    border:rgb(85, 74, 74) solid 1px;
+    padding: 10px;
+    margin: 10px;
+}
+.flex-item:hover{
+    border-color: rgb(85, 74, 74);
+    box-shadow: 0px 0px 13px rgb(11, 87, 44);
+}
+
+.flex-item:focus{
+    border-color: rgb(85, 74, 74);
+    box-shadow: 15px 15px 15px #000;
+
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Registro de noticias </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/formulario.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navBar">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse elementosNav" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto elementos">
+        <li class="nav-item" >
+          <a class="nav-link" th:href="@{/}"  role="button" >
+            HOME
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" th:href="@{/news/lista}" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Noticias
+          </a>
+        </li>
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Perfil
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" th:href="@{/news/registrar}" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Registrar Nueva Noticia
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <div class="header-banner">
+      <div class="containerImg">
+        <img hidden="true" class="logo" id="banner-header" src="/css/img/News-Banner-Image.png" alt="Img logo news" height="350px" width="100%">
+      </div>
+    </div>
+  </header>
+
+  <div class="container-fluid m-5 contenedor">
+
+    <form class="formulario" action="/news/registro" method="POST">
+
+      <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError" >
+        <div class="card-body">
+          <h5 class="card-title">Error 👎</h5>
+          <p class="card-text" th:text="${error}"></p>
+        </div>
+      </div>
+      <div th:if="${exito != null}" class="card text-white bg-success mb-3 mt-3 mensajeExito" >
+        <div class="card-body">
+          <h5 class="card-title">Exito!</h5>
+          <p class="card-text" th:text="${exito}"></p>
+        </div>
+      </div>
+
+      <div class="form-group my-3">
+        <label class="mb-2">Cargar Noticia</label>
+      </div>
+      <div class="form-group my-3">
+        <input type="text" class="form-control" name="titulo" placeholder="Titulo de la noticia">
+      </div>
+
+      <div class="form-group my-3">
+        <input class="form-control cuerpo-text" name="cuerpo" th:type="textarea"  >
+      </div>
+
+
+      <button type="submit" class="btn btn-primary mt-3 botones">Guardar</button>
+    </form>
+
+
+    <section class=" text-center container">
+      <div class="row mt-3">
+        <div class="divVolver">
+          <a th:href="@{/}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Libros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navBar">
+    <div class="containerImg">
+      <a href="/" class="navbar-brand d-flex align-items-center">
+        <!--            <img class="logo" src="/img/Egg.png" alt="Img logo egg">-->
+      </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse elementosNav" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto elementos">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Libros
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+
+            <li><a class="dropdown-item" th:href="@{/libro/registrar}">Crear Libro</a></li>
+            <li><hr class="dropdown-divider"></li>
+
+            <li><a class="dropdown-item" th:href="@{/libro/lista}">Listar Libros</a></li>
+          </ul>
+        </li>
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Autores
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+
+            <li><a class="dropdown-item" th:href="@{/autor/registrar}">Crear Autor</a></li>
+            <li><hr class="dropdown-divider"></li>
+
+            <li><a class="dropdown-item" th:href="@{/autor/lista}">Listar Autores</a></li>
+          </ul>
+        </li>
+
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Editoriales
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+
+            <li><a class="dropdown-item" th:href="@{/editorial/registrar}">Crear Editorial</a></li>
+            <li><hr class="dropdown-divider"></li>
+
+            <li><a class="dropdown-item" th:href="@{/editorial/lista}">Listar Editoriales</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="container m-5" >
+
+    <table class="table table-dark">
+      <thead>
+      <tr>
+        <th scope="col">ISBN</th>
+        <th scope="col">Titulo del Libro</th>
+        <th scope="col">Cantidad Ejemplares</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Editorial</th>
+        <th scope="col">Acciones</th>
+        <th></th>
+
+      </tr>
+      </thead>
+      <tbody th:each="libro : ${libros}">
+      <tr>
+        <th scope="row" th:text="${libro.ISBN}"></th>
+        <td th:text="${libro.titulo}"></td>
+        <td th:text="${libro.ejemplares}"></td>
+        <td th:text="${libro.autor.nombre}"></td>
+        <td th:text="${libro.editorial.nombre}"></td>
+        <td>
+          <a th:href= "@{/libro/modificar/__${libro.ISBN}__}"><i class="fas fa-feather-alt">  </i> Modificar </a>
+        </td>
+        <td>
+          <a th:href= "@{/libro/borrar/__${libro.ISBN}__}"><i class="fas fa-feather-alt">  </i> Borrar </a>
+        </td>
+
+      </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
